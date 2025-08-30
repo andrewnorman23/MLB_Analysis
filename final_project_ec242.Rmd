@@ -1,0 +1,542 @@
+---
+title: "Baseball Statistic Analysis"
+author: "Andrew Norman, Charlie Head, and Muhammad Tahmid Chowdhury"
+date: "2025-05-01"
+output:
+  pdf_document:
+    latex_engine: xelatex
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r no code showing, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+## 1. Motivation, load our packages and datasets, view the structures, and skim them.
+
+```{r, setup, warning= FALSE, message= FALSE}
+library(tidyverse)
+library(tibble)
+library(broom)
+library(skimr)
+library(knitr)
+library(patchwork)
+library(scales)
+library(glmnet)
+library(ggpubr)
+set.seed(90210)
+```
+
+Our topic of interest is predictive baseball analysis relating to next years team win ratio with the teams end of year statistics from the previous season. We are interested in predictive baseball analysis because of the film *Moneyball* in which the General Manager and assistant GM try to use data analytics to remove bias from their player scouting and selection to get winning team statistics from overlooked players due to many reasons on a limited budget. We do not have the same scouting and player level statistics that scouts and managers do, but using team level batting statistics we would like to try to model team's win ratios based off of end of season team batting statistics and payroll from the previous year since if you cannot hit and drive in runs then you cannot win games.
+
+```{r, load data, warning= FALSE, message= FALSE}
+batting_data <- read.csv("mlb_batting_data.csv")
+
+win_data <- read.csv("mlb_win_data.csv")
+
+payroll_data <- read.csv("mlb_payroll_data.csv")
+
+inflation <- read.csv("inflation_multiplier.csv")
+
+inflation <- inflation %>%
+  rename(year = Year)
+
+#skim(batting_data)
+#skim(win_data)
+#skim(payroll_data)
+
+#str(batting_data)
+#str(win_data)
+#str(payroll_data)
+```
+
+## 2. Merge our datasets into one and skim to check for missing values.
+
+```{r, merge datasets, warning= FALSE, message= FALSE}
+mlb_data <- left_join(batting_data, win_data, by = c("team_name", "year"))
+
+mlb_data <- left_join(mlb_data, payroll_data, by = c("team_name", "year"))
+
+
+
+mlb_data <- left_join(mlb_data, inflation, by = "year")
+
+mlb_data <- mlb_data %>%
+  rename(
+    team = team_name,
+    runs_per_game = runs.game,
+    doubles = X2b,
+    triples = X3b,
+    win_ratio = w.l)
+
+skim(mlb_data)
+```
+
+## 3. Clean our data.
+
+```{r, clean data, warning= FALSE, message= FALSE}
+mlb_data[31, 35] <- 169733434
+mlb_data[62, 35] <- 154941213
+mlb_data[93, 35] <- 134486564
+mlb_data[124, 35] <- 120644596
+mlb_data[155, 35] <- 128118328
+mlb_data[217, 35] <- 132151837
+mlb_data[248, 35] <- 132796421
+mlb_data[155, 35] <- 128118328
+
+mlb_data <- mlb_data %>%
+  mutate(
+    est_payroll = as.numeric(gsub("^\\$|,", "", est_payroll)),
+    team = ifelse(team == "Tampa Bay Devil Rays", "Tampa Bay Rays", team),
+    team = ifelse(team == "Florida Marlins", "Miami Marlins", team),
+    team = ifelse(team == "Cleveland Indians", "Cleveland Guardians", team),
+    team = ifelse(team == "Montreal Expos", "Washington Nationals", team),
+    adjusted_payroll = est_payroll * inflation_multiplier)
+
+skim(mlb_data)
+```
+
+Our data set has 38 different variables containing the mentioned batting statistics, win statistics, and payroll statistics. Focusing on the key batting statistics we see that over the last 25 years: the average amount of runs per year is 719, the average number of homeruns is 171 per year, average batting average is .256 which is calculated by dividing total at bats by total base hits, average on base percentage is .325, average slugging percentage is .414 which is total bases divided by total at bats, average on base plus slugging percentage is .740, and average on base plus slugging percentage plus is 97.1. Aside from batting statistics, the average estimated team payroll was \$140 million. These are some of our key variables that will be helping us predict next season's win ratio off of end of year stats of the previous season.
+
+All of our data was collected from baseball-reference.com for free use. Setting up our data included constructing multiple `.csv` files that included the relevant statistics we were looking for. We needed to make sure that we had all batting statistics, payroll estimates, win statistics, and one for inflation multipliers so our payroll data is all accurately adjusted and comparable. While constructing our final data set we decided to add a dummy for World Series winner each year as well. After merging all 4 data sets by year and team name, we then manually addressed `NA` values in the estimated payroll category by manually setting them to the proper values and renamed teams to current names (if a team moved cities at some point in the last 25 years there would be two different teams even though it is the same ball club). 
+
+## 4. Data Exploration
+
+```{r, payroll by season}
+avg_mlb_data <- mlb_data %>%
+  filter(team == "League Average")
+
+ggplot(avg_mlb_data,
+       aes(x = year,
+           y = adjusted_payroll)) +
+  geom_point(alpha = .75,
+             color = "blue") +
+  geom_line() +
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +
+  theme_minimal() +
+  labs(x = "Season",
+       y = "Estimated Payroll (Adjusted for Inflation)",
+       title = "Estimated Payroll by Season") +
+  theme(plot.title = element_text(hjust = .5))
+```
+
+It appears that league payroll has been trending upwards since 2000 with intermittent decreases until reaching a sharp decline rapidly into the 2020 season and currently trending towards recovery to pre-2020 season levels. The overall increase in payroll is expected since rising popularity levels of the sport generate more revenue than previous years and players will want a proportional, if not larger, piece of the pie. There is a likely explanation for the large dip in 2020 most likely due to COVID-19. The 2020 MLB season was massively delayed due to COVID-19 and shortened from 162 games to 60 games total. Due to this player salaries were massively reduced for this year and players were only paid a portion of their contracted earnings for the year. However, this does not detract from the overall trend increase in payroll each year for the prior 20 years.
+
+```{r, payroll vs win_ratio}
+ggplot(mlb_data,
+       aes(x = win_ratio,
+           y = adjusted_payroll,
+           color = as.factor(world_series_win))) +
+  geom_point(alpha = .5) +
+  geom_smooth(method = "lm", 
+              se = FALSE,
+              aes(color = as.factor(world_series_win))) +
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +
+  theme_minimal() +
+  scale_color_manual(values = c("0" = "#999999", "1" = "#377eb8")) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = win_ratio, y = adjusted_payroll),
+    label.x = 0.28,
+    label.y = 310000000,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = win_ratio, y = adjusted_payroll, label = ..rr.label..),
+    label.x = 0.28,
+    label.y = 290000000,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = win_ratio, y = adjusted_payroll),
+    label.x = 0.28,
+    label.y = 270000000,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = win_ratio, y = adjusted_payroll, label = ..rr.label..),
+    label.x = 0.28,
+    label.y = 250000000,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  labs(x = "Win Ratio",
+       y = "Estimated Payroll (Adjusted for Inflation)",
+       title = "Win Ratio vs Estimated Payroll with World Series Winners",
+       color = "World Series Win") +
+  theme(plot.title = element_text(hjust = .5),
+        legend.position = "bottom")
+```
+
+There is a clear relationship between estimated payroll and win ratio. As teams spend more money they are more likely to increase their win ratio. Notice how in the last 25 years there are only 4 teams that have spent more than \$250 million and had a win ratio lower than $.500$. All 4 teams that this is true for as well were very close to a $.500$ win ratio as well. There are teams that have achieved this for way less, but according to the statistics, wins can be bought to a degree. There are two outcomes that both results in success from the view of an owner that may differ from the views of fans. The first outcome is to win as many games as possible and have a good win ratio. As the team wins more that generates more interest from fans, which increases game attendance and therefore revenue. The second outcome is winning the World Series, which has the same effects as winning as many games as possible in the regular season, but to a far greater degree. The relationship for non-World Series winning teams has an $R^2$ of .13 and a strong correlation coefficient of $3 * 10^8$. This means that 13% of the variation in win ratio can be explained by the variation in explained payroll, and an increase in win ratio by .1  is associated with an increase in estimated payroll by \$30 million. Comparing these values to World Series winning teams and we see 22% of the variation in win ratio explained by the variation in estimated payroll and an increase in win ratio by .1 is associated with an increase in estimated payroll by \$42 million. Based off of this, World Series winning teams have to pay more for their wins than non winning teams, which makes sense since they are presumably paying more money for better players on their team to increase their odds of winning the World Series.
+
+```{r, obp graphs}
+obp_vs_win <- ggplot(mlb_data,
+       aes(x = win_ratio,
+           y = obp)) +
+  geom_point(aes(color = as.factor(world_series_win)),
+             alpha = .5) +
+  geom_smooth(aes(color = as.factor(world_series_win)),
+              method = "lm",
+              se = FALSE) +
+  scale_x_continuous(labels = label_number(scale_cut = cut_short_scale())) +
+  theme_minimal() +
+  labs(x = "Win Ratio",
+       y = "On Base Percentage",
+       title = "OBP vs Win Ratio") +
+  scale_color_manual(values = c("0" = "#999999", "1" = "#377eb8")) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = win_ratio, y = obp),
+    label.x = 0.28,
+    label.y = .375,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = win_ratio, y = obp, label = ..rr.label..),
+    label.x = 0.28,
+    label.y = .37,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = win_ratio, y = obp),
+    label.x = 0.28,
+    label.y = .363,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = win_ratio, y = obp, label = ..rr.label..),
+    label.x = 0.28,
+    label.y = .358,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  theme(plot.title = element_text(hjust = .5),
+        legend.position = "none")
+
+obp_vs_payroll <- ggplot(mlb_data,
+       aes(x = adjusted_payroll,
+           y = obp)) +
+  geom_point(aes(color = as.factor(world_series_win)),
+             alpha = .5) +
+  geom_smooth(aes(color = as.factor(world_series_win)),
+              method = "lm",
+              se = FALSE) +
+  scale_x_continuous(labels = label_number(scale_cut = cut_short_scale())) +
+  theme_minimal() +
+  scale_color_manual(values = c("0" = "#999999", "1" = "#377eb8")) +
+  labs(x = "Estimated Payroll \n(Adjusted for Inflation)",
+       y = "On Base Percentage",
+       title = "OBP vs Estimated Payroll",
+       color = "World Series Winner") +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = adjusted_payroll, y = obp),
+    label.x = 10000000,
+    label.y = .375,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = adjusted_payroll, y = obp, label = ..rr.label..),
+    label.x = 10000000,
+    label.y = .37,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = adjusted_payroll, y = obp),
+    label.x = 10000000,
+    label.y = .363,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = adjusted_payroll, y = obp, label = ..rr.label..),
+    label.x = 10000000,
+    label.y = .358,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  theme(plot.title = element_text(hjust = .5),
+        legend.position = "bottom")
+
+(obp_vs_win | obp_vs_payroll)
+```
+
+Shifting the focus to On Base Percentage (OBP) and separating the observations once again by World Series winners and non-winners the difference shows. In the film *Moneyball* the managers focus on picking players that get on base, expressed through OBP. Based off of the plot with Win Ratio and OBP it appears this may work since there is quite a strong relationship between the two variables for non-winning teams with an $R^2$ of $.22$ and a correlation coefficient of $.094$, which the Oakland Athletics did not win the World Series in 2002 when the movie is based. For non-winning teams a $.1$ increase in win ratio is associated with a $.0094$ increase in OBP. Therefore, picking the players for a team based around OBP may have been an actually viable strategy at that point in time. Shifting to World Series winning teams and a different idea emerges, OBP actually matters less for World Series winning teams. Less of the variation in Win Ratio can be explained by OBP with winners retaining an $R^2$ of $.1$, which is still very large for only including Win Ratio to explain OBP, but is much lower than the non-winners. The winners also have a correlation coefficient of $.066$ which is also noticeably lower since a $.1$ increase in win ratio only has an associated increase of $.0066$ in OBP, but their average OBP is also higher than non-winners. Moving over to look at how OBP is effected by estimated payroll as we see more of the same as how win ratio was effected by payroll. The relationship between OBP and payroll is more than two times more important for World Series winning teams than non-winning teams, with winning teams achieving a coefficient more than two times as large and an $R^2$ more than seven times as large. This is expected since for World Series winning teams getting on base is not enough, hitting and driving in runs is more important to winning as many games as teams need to to get to and win the World Series. 
+
+```{r, ops+ graphs}
+ops_plus_vs_win_ratio <- ggplot(mlb_data,
+       aes(x = win_ratio,
+           y = ops_plus)) +
+  geom_point(aes(color = as.factor(world_series_win)),
+             alpha = .5) +
+  geom_smooth(aes(color = as.factor(world_series_win)),
+              method = "lm",
+              se = FALSE) +
+  scale_color_manual(values = c("0" = "#999999", "1" = "#377eb8")) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = win_ratio, y = ops_plus),
+    label.x = .28,
+    label.y = 120,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = win_ratio, y = ops_plus, label = ..rr.label..),
+    label.x = .28,
+    label.y = 117,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = win_ratio, y = ops_plus),
+    label.x = .28,
+    label.y = 113,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = win_ratio, y = ops_plus, label = ..rr.label..),
+    label.x = .28,
+    label.y = 110,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  theme_minimal() +
+  labs(x = "Win Ratio",
+       y = "On Base + Slugging Percentage",
+       title = "OPS+ vs Win Ratio") +
+  theme(plot.title = element_text(hjust = .5),
+        legend.position = "none")
+
+ops_plus_vs_payroll <- ggplot(mlb_data,
+       aes(x = adjusted_payroll,
+           y = ops_plus)) +
+  geom_point(aes(color = as.factor(world_series_win)),
+             alpha = .5) +
+  geom_smooth(aes(color = as.factor(world_series_win)),
+              method = "lm",
+              se = FALSE) +
+  scale_color_manual(values = c("0" = "#999999", "1" = "#377eb8")) +
+  scale_x_continuous(labels = label_number(scale_cut = cut_short_scale())) +
+    stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = adjusted_payroll, y = ops_plus),
+    label.x = 200000000,
+    label.y = 90,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 0),
+    aes(x = adjusted_payroll, y = ops_plus, label = ..rr.label..),
+    label.x = 200000000,
+    label.y = 87,
+    size = 4,
+    color = "#999999",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = adjusted_payroll, y = ops_plus),
+    label.x = 200000000,
+    label.y = 83,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  stat_regline_equation(
+    data = subset(mlb_data, world_series_win == 1),
+    aes(x = adjusted_payroll, y = ops_plus, label = ..rr.label..),
+    label.x = 200000000,
+    label.y = 80,
+    size = 4,
+    color = "#377eb8",
+    show.legend = FALSE) +
+  theme_minimal() +
+  labs(x = "Estimated Payroll \n(Adjusted for Inflation)",
+       y = "",
+       title = "OPS+ vs Estimated Payroll",
+       color = "World Series Win") +
+  theme(plot.title = element_text(hjust = .5),
+        legend.position = "bottom")
+
+(ops_plus_vs_win_ratio | ops_plus_vs_payroll)
+```
+
+OPS+ is a statistic that combines on base percentage and slugging percentage and then normalizes them over the entire league. This normalization is to account for differences in lengths of ballparks and other variables that change by ballpark. This is statistic is vitally important for winning games since you cannot win games if you do not get on base, and then slugging percentage is calculated by $Slugging = \frac{(1 * Singles) + (2 * Doubles) + (3 * Triples) + (4 * Home Runs)}{(At Bats)}$. Slugging weighs the importance of the hits against at bats. In recent years MLB teams have been shifting their focus to OPS+ since it is vitally important to winning games since low slugging percentages mean teams not getting impactful hits when needed and scoring. It appears that win ratio has roughly the same effect on OPS+ for World Series winning and non-winning teams. World Series winning teams have a noticeably lower correlation coefficient decreasing from $67$ to $59$ meaning that a $.1$ increase in win ratio is associated with an $6.7$ unit increase in OPS+ for non-winning teams and a $5.9$ unit increase for World Series winning teams. The $R^2$ values reflect that 35% of the variation in win ratio can be explained by OPS+ for non-winning teams and 24% for World Series winning teams, which are quite high for only explaining OPS+ with win ratio. Shifting to the effect of payroll on OPS+ and we see a huge difference between winners and non-winners. For World Series winning teams the $R^2$ is $.47$ which is astronomically large for only explaining OPS+ with estimated payroll. This can be interpreted as World Series winning teams are able to more efficiently convert payroll to offensive performance. This is best represented by the current Los Angeles Dodgers roster. The Dodgers spend the most money out of any team in the league in payroll and purchase the best batters on the market, spending \$70 million a year on just one player with remarkable batting skills named Shohei Ohtani. For non-winning teams the $R^2$ value of the effect of payroll on OPS+ is $.12$ which is large in its own right, but a huge step down from winning teams. It is less likely that OPS+ is associated with payroll for non-winning teams since they may have more elite level rookies or mediocre veteran players that have a good season and produce good offensive numbers for the team, but are not being paid much at the time of their elite performances.
+
+## 5. Predictive Model
+
+```{r, lasso model}
+set.seed(90210)
+
+mlb_data <- mlb_data %>%
+  arrange(team, year) %>%
+  group_by(team) %>%
+  mutate(next_year_win_ratio = lead(win_ratio)) %>%
+  ungroup()
+
+mlb_data <- mlb_data %>%
+  filter(year != 2024)
+
+eval_indices <- sample(1:nrow(mlb_data),
+                         size = nrow(mlb_data) * .1,
+                         replace = FALSE)
+
+mlb_eval <- mlb_data[eval_indices, ]
+
+mlb_remaining <- mlb_data[-eval_indices, ]
+
+train_indices <- sample(1:nrow(mlb_remaining),
+                    size = nrow(mlb_remaining) * .5,
+                    replace = FALSE)
+
+mlb_train <- mlb_remaining[train_indices, ]
+
+mlb_test <- mlb_remaining[-train_indices, ]
+
+train_y <- mlb_train$next_year_win_ratio
+test_y <- mlb_test$next_year_win_ratio
+
+mlb_formula <- ~ (batters + batter_age + runs_per_game + plate_apps + at_bats + runs + hits + 
+                    doubles + triples + hr + rbi + sb + so + ba + obp + ops_plus + tb + sf + lob +
+                    adjusted_payroll)
+
+train_x <- model.matrix(mlb_formula, data = mlb_train)[, -1]
+test_x <- model.matrix(mlb_formula, data = mlb_test)[, -1]
+
+lambdas <- 10^seq(-5, 1, length.out = 100)
+
+lassos <- lapply(lambdas, function(i) {
+  glmnet(train_x, train_y, alpha = 1, lambda = i, standardize = TRUE)
+}
+)
+
+rmse <- function(actual, predicted) {
+  sqrt(mean((actual - predicted)^2))
+}
+
+rmse_df <- tibble(
+  lambda = lambdas,
+  train_rmse = sapply(1:length(lassos), function(i) {
+    pred <- predict(lassos[[i]], newx = train_x)
+    rmse(train_y, pred)
+  }),
+  test_rmse = sapply(1:length(lassos), function(i) {
+    pred <- predict(lassos[[i]], newx = test_x)
+    rmse(test_y, pred)
+  })
+)
+
+rmse_table <- rmse_df %>%
+  mutate(across(c(lambda, train_rmse, test_rmse), ~round(.x, 3)))
+
+best_mlb_lambda <- rmse_df %>%
+  filter(test_rmse == min(test_rmse)) %>%
+  pull(lambda)
+
+rmse_table %>%
+  slice(25:45) %>%
+  kable(caption = "Train and Test RMSEs for LASSO Across Lambda Values")
+```
+
+```{r, rmse plot}
+ggplot(rmse_df,
+       aes(x = log(lambda))) +
+  geom_line(aes(y = train_rmse,
+                color = "Train RMSE"),
+            linewidth = 1) +
+  geom_line(aes(y = test_rmse,
+                color = "Test RMSE"),
+            linewidth = 1) +
+  geom_vline(xintercept = log(rmse_df$lambda[which.min(rmse_df$test_rmse)]), 
+             linetype = "dashed", color = "black") +
+  labs(x = "log(Lambda)",
+       y = "RMSE",
+       title = "Train and Test RMSE Across Lambda Values",
+       color = "") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = .5))
+```
+
+```{r, eval lasso model}
+all_train_test <- bind_rows(mlb_train, mlb_test)
+
+all_x <- model.matrix(mlb_formula,data = all_train_test)[, -1]
+all_y <- all_train_test$next_year_win_ratio
+
+final_mlb_model <- glmnet(all_x,
+                          all_y,
+                          alpha = 1,
+                          lambda = best_mlb_lambda)
+
+dummy_row <- mlb_train[1, names(mlb_eval)]
+mlb_eval_fixed <- bind_rows(dummy_row, mlb_eval)
+
+mlb_eval_x <- model.matrix(mlb_formula, data = mlb_eval_fixed)[, -1]
+mlb_eval_x <- mlb_eval_x[-1, ]
+
+mlb_eval_preds <- predict(final_mlb_model,
+                          s = best_mlb_lambda,
+                          newx = mlb_eval_x)
+
+mlb_eval_results <- mlb_eval %>% 
+  mutate(pred_win_ratio = as.numeric(mlb_eval_preds),
+         dif_win_ratio = pred_win_ratio - win_ratio)
+```
+
+```{r, conclusion}
+ggplot(mlb_eval_results,
+       aes(x = win_ratio,
+           y = pred_win_ratio)) +
+  geom_point(alpha = .5,
+             color = "grey50") +
+  geom_abline(slope = 1, 
+              intercept = 0,
+              linetype = "dashed",
+              color = "black") +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "red",
+              alpha = .5) +
+  theme_minimal() +
+  labs(x = "Actual Win Ratio",
+       y = "Predicted Win Ratio",
+       title = "Actual vs Predicted Win Ratios") +
+  theme(plot.title = element_text(hjust = .5)) +
+  coord_fixed(ratio = 1,
+              xlim = c(0.3, 0.7),
+              ylim = c(0.3, 0.7))
+
+mlb_coef_df <- (tidy(final_mlb_model, s = best_mlb_lambda)) %>%
+  filter(term != "(Intercept)") %>%
+  select(term, estimate)
+```
+
+Our LASSO model seeks to predict the next season's win ratio based off the end of season batting statistics from the previous season including end of season payroll as well. A complete success would be the predicted values having very small residuals from the dashed black line with a slope of one. Our model did not achieve perfect results, but still shows a strong positive relationship in predicting the next season's win ratio. The difference of prediction vs actual most likely come from seasonal roster changes that happen due to trades, drafting, and moving players up and down from organizational minor league teams. The model cannot predict these shocks due to them being unpredictable in nature with only using year-end batting statistics. If this was attempted with individual player level statistics with multiple observations for each player over a year, it may be predictable that decreasing performance may lead to a trade but it would be unpredictable to where a player would go and who they would be replaced by. The variables that our LASSO model chose as the most important were: batters, batter age, average runs per game, runs, number of triples, home runs, batting average, stolen bases, OBP, OPS+, and estimated payroll. The three variables with the highest coefficients are runs, stolen bases, and OPS+. Estimated payroll and OBP have the next highest coefficients and are very important to the model too. This suggests that all the variables that were explored closer are impactful to a team's future success. Based on the RMSE values and final model, it looks like our LASSO model is underfitting since the slope of our predictions vs actual values is less than 1. If we wanted to improve our fitting on this model we could perhaps add more defensive statistics to our data and increase the amount of seasons in the data frame to give more data to test and train on.
