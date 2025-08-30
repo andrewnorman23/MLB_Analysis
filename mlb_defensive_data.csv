@@ -1,0 +1,776 @@
+year,team_name,fielding,runs_allowed_game,defensive_efficiency
+2024,Arizona Diamondbacks,50,4.86,0.682
+2024,Atlanta Braves,54,3.75,0.689
+2024,Baltimore Orioles,58,4.31,0.704
+2024,Boston Red Sox,57,4.61,0.693
+2024,Chicago Cubs,56,4.13,0.705
+2024,Chicago White Sox,63,5.02,0.685
+2024,Cincinnati Reds,59,4.28,0.702
+2024,Cleveland Guardians,50,3.86,0.709
+2024,Colorado Rockies,54,5.73,0.671
+2024,Detroit Tigers,48,3.96,0.709
+2024,Houston Astros,55,4.03,0.704
+2024,Kansas City Royals,50,3.98,0.696
+2024,Los Angeles Angels,64,4.92,0.704
+2024,Los Angeles Dodgers,59,4.23,0.71
+2024,Miami Marlins,70,5.19,0.681
+2024,Milwaukee Brewers,56,3.96,0.709
+2024,Minnesota Twins,52,4.54,0.695
+2024,New York Mets,57,4.3,0.704
+2024,New York Yankees,52,4.12,0.703
+2024,Oakland Athletics,55,4.72,0.691
+2024,Philadelphia Phillies,47,4.14,0.692
+2024,Pittsburgh Pirates,56,4.56,0.687
+2024,San Diego Padres,49,4.13,0.697
+2024,Seattle Mariners,50,3.75,0.724
+2024,San Francisco Giants,57,4.31,0.683
+2024,St. Louis Cardinals,44,4.44,0.696
+2024,Tampa Bay Rays,54,4.09,0.706
+2024,Texas Rangers,56,4.56,0.702
+2024,Toronto Blue Jays,55,4.59,0.705
+2024,Washington Nationals,48,4.72,0.676
+2024,League Average,48,4.39,0.697
+2023,Arizona Diamondbacks,53,4.7,0.695
+2023,Atlanta Braves,51,4.42,0.685
+2023,Baltimore Orioles,50,4.19,0.696
+2023,Boston Red Sox,56,4.79,0.677
+2023,Chicago Cubs,48,4.46,0.694
+2023,Chicago White Sox,56,5.19,0.685
+2023,Cincinnati Reds,65,5.07,0.685
+2023,Cleveland Guardians,50,4.3,0.698
+2023,Colorado Rockies,57,5.91,0.67
+2023,Detroit Tigers,50,4.57,0.699
+2023,Houston Astros,41,4.31,0.697
+2023,Kansas City Royals,58,5.3,0.685
+2023,Los Angeles Angels,66,5.12,0.682
+2023,Los Angeles Dodgers,58,4.31,0.709
+2023,Miami Marlins,52,4.46,0.683
+2023,Milwaukee Brewers,58,3.99,0.719
+2023,Minnesota Twins,47,4.07,0.697
+2023,New York Mets,58,4.5,0.689
+2023,New York Yankees,54,4.31,0.704
+2023,Oakland Athletics,62,5.7,0.678
+2023,Philadelphia Phillies,44,4.41,0.695
+2023,Pittsburgh Pirates,58,4.88,0.686
+2023,San Diego Padres,55,4,0.702
+2023,Seattle Mariners,55,4.07,0.7
+2023,San Francisco Giants,51,4.44,0.679
+2023,St. Louis Cardinals,52,5.12,0.67
+2023,Tampa Bay Rays,58,4.1,0.703
+2023,Texas Rangers,48,4.42,0.703
+2023,Toronto Blue Jays,46,4.14,0.693
+2023,Washington Nationals,48,5.22,0.682
+2023,League Average,48,4.62,0.691
+2022,Arizona Diamondbacks,57,4.57,0.704
+2022,Atlanta Braves,53,3.76,0.701
+2022,Baltimore Orioles,57,4.25,0.69
+2022,Boston Red Sox,53,4.86,0.683
+2022,Chicago Cubs,64,4.51,0.697
+2022,Chicago White Sox,44,4.43,0.688
+2022,Cincinnati Reds,65,5.03,0.689
+2022,Cleveland Guardians,50,3.91,0.709
+2022,Colorado Rockies,43,5.39,0.673
+2022,Detroit Tigers,52,4.4,0.701
+2022,Houston Astros,44,3.2,0.719
+2022,Kansas City Royals,55,5,0.675
+2022,Los Angeles Angels,66,4.12,0.709
+2022,Los Angeles Dodgers,51,3.17,0.729
+2022,Miami Marlins,56,4.17,0.694
+2022,Milwaukee Brewers,51,4.25,0.704
+2022,Minnesota Twins,61,4.22,0.702
+2022,New York Mets,59,3.74,0.692
+2022,New York Yankees,54,3.5,0.72
+2022,Oakland Athletics,64,4.75,0.697
+2022,Philadelphia Phillies,56,4.23,0.687
+2022,Pittsburgh Pirates,68,5.04,0.677
+2022,San Diego Padres,55,4.07,0.705
+2022,Seattle Mariners,59,3.85,0.71
+2022,San Francisco Giants,65,4.3,0.674
+2022,St. Louis Cardinals,51,3.93,0.702
+2022,Tampa Bay Rays,61,3.79,0.708
+2022,Texas Rangers,55,4.59,0.693
+2022,Toronto Blue Jays,51,4.19,0.691
+2022,Washington Nationals,54,5.28,0.687
+2022,League Average,50,4.28,0.697
+2021,Arizona Diamondbacks,64,5.51,0.685
+2021,Atlanta Braves,55,4.07,0.708
+2021,Baltimore Orioles,62,5.9,0.683
+2021,Boston Red Sox,56,4.62,0.659
+2021,Chicago Cubs,68,5.18,0.691
+2021,Chicago White Sox,47,3.93,0.694
+2021,Cincinnati Reds,55,4.69,0.688
+2021,Cleveland Indians,48,4.49,0.703
+2021,Colorado Rockies,45,4.94,0.686
+2021,Detroit Tigers,49,4.67,0.698
+2021,Houston Astros,51,4.06,0.713
+2021,Kansas City Royals,47,4.86,0.685
+2021,Los Angeles Angels,64,4.96,0.68
+2021,Los Angeles Dodgers,61,3.46,0.723
+2021,Miami Marlins,61,4.33,0.689
+2021,Milwaukee Brewers,60,3.85,0.708
+2021,Minnesota Twins,56,5.15,0.692
+2021,New York Mets,64,4.12,0.697
+2021,New York Yankees,59,4.13,0.698
+2021,Oakland Athletics,50,4.24,0.698
+2021,Philadelphia Phillies,55,4.6,0.687
+2021,Pittsburgh Pirates,64,5.14,0.687
+2021,San Diego Padres,54,4.37,0.698
+2021,Seattle Mariners,62,4.62,0.699
+2021,San Francisco Giants,54,3.67,0.707
+2021,St. Louis Cardinals,51,4.15,0.714
+2021,Tampa Bay Rays,61,4.02,0.706
+2021,Texas Rangers,54,5.03,0.698
+2021,Toronto Blue Jays,61,4.09,0.7
+2021,Washington Nationals,59,5.06,0.694
+2021,League Average,50,4.53,0.695
+2020,Arizona Diamondbacks,45,4.92,0.689
+2020,Atlanta Braves,48,4.8,0.692
+2020,Baltimore Orioles,45,4.9,0.698
+2020,Boston Red Sox,47,5.85,0.647
+2020,Chicago Cubs,45,4,0.708
+2020,Chicago White Sox,46,4.1,0.712
+2020,Cincinnati Reds,43,4.05,0.707
+2020,Cleveland Indians,39,3.48,0.701
+2020,Colorado Rockies,40,5.88,0.675
+2020,Detroit Tigers,44,5.48,0.69
+2020,Houston Astros,42,4.58,0.703
+2020,Kansas City Royals,48,4.53,0.683
+2020,Los Angeles Angels,45,5.35,0.698
+2020,Los Angeles Dodgers,38,3.55,0.729
+2020,Miami Marlins,61,5.07,0.686
+2020,Milwaukee Brewers,43,4.4,0.687
+2020,Minnesota Twins,42,3.58,0.703
+2020,New York Mets,46,5.13,0.668
+2020,New York Yankees,42,4.5,0.695
+2020,Oakland Athletics,37,3.87,0.703
+2020,Philadelphia Phillies,46,5.18,0.642
+2020,Pittsburgh Pirates,49,4.97,0.697
+2020,San Diego Padres,46,4.02,0.695
+2020,Seattle Mariners,48,5.05,0.708
+2020,San Francisco Giants,44,4.95,0.699
+2020,St. Louis Cardinals,44,3.95,0.731
+2020,Tampa Bay Rays,43,3.82,0.693
+2020,Texas Rangers,49,5.2,0.704
+2020,Toronto Blue Jays,48,5.2,0.681
+2020,Washington Nationals,43,5.02,0.664
+2020,League Average,43,4.65,0.693
+2019,Arizona Diamondbacks,44,4.59,0.692
+2019,Atlanta Braves,50,4.59,0.685
+2019,Baltimore Orioles,57,6.06,0.688
+2019,Boston Red Sox,47,5.11,0.673
+2019,Chicago Cubs,52,4.43,0.681
+2019,Chicago White Sox,47,5.17,0.678
+2019,Cincinnati Reds,47,4.39,0.699
+2019,Cleveland Indians,53,4.06,0.695
+2019,Colorado Rockies,50,5.91,0.677
+2019,Detroit Tigers,53,5.68,0.666
+2019,Houston Astros,45,3.95,0.717
+2019,Kansas City Royals,51,5.36,0.678
+2019,Los Angeles Angels,56,5.36,0.695
+2019,Los Angeles Dodgers,45,3.78,0.71
+2019,Miami Marlins,50,4.99,0.703
+2019,Milwaukee Brewers,49,4.73,0.691
+2019,Minnesota Twins,49,4.65,0.673
+2019,New York Mets,52,4.55,0.679
+2019,New York Yankees,54,4.56,0.686
+2019,Oakland Athletics,49,4.2,0.71
+2019,Philadelphia Phillies,53,4.9,0.687
+2019,Pittsburgh Pirates,54,5.62,0.666
+2019,San Diego Padres,54,4.87,0.68
+2019,Seattle Mariners,67,5.51,0.688
+2019,San Francisco Giants,63,4.77,0.699
+2019,St. Louis Cardinals,42,4.09,0.706
+2019,Tampa Bay Rays,57,4.05,0.695
+2019,Texas Rangers,53,5.42,0.671
+2019,Toronto Blue Jays,61,5.11,0.685
+2019,Washington Nationals,50,4.47,0.689
+2019,League Average,47,4.83,0.688
+2018,Arizona Diamondbacks,49,3.98,0.698
+2018,Atlanta Braves,57,4.06,0.709
+2018,Baltimore Orioles,56,5.51,0.674
+2018,Boston Red Sox,43,3.99,0.693
+2018,Chicago Cubs,50,3.96,0.7
+2018,Chicago White Sox,51,5.23,0.69
+2018,Cincinnati Reds,53,5.06,0.685
+2018,Cleveland Indians,48,4,0.688
+2018,Colorado Rockies,41,4.57,0.688
+2018,Detroit Tigers,49,4.91,0.694
+2018,Houston Astros,41,3.3,0.705
+2018,Kansas City Royals,49,5.14,0.68
+2018,Los Angeles Angels,60,4.46,0.693
+2018,Los Angeles Dodgers,52,3.74,0.698
+2018,Miami Marlins,51,5.02,0.697
+2018,Milwaukee Brewers,53,4.04,0.704
+2018,Minnesota Twins,54,4.78,0.682
+2018,New York Mets,56,4.36,0.691
+2018,New York Yankees,49,4.13,0.684
+2018,Oakland Athletics,53,4.16,0.717
+2018,Philadelphia Phillies,48,4.49,0.677
+2018,Pittsburgh Pirates,47,4.3,0.686
+2018,San Diego Padres,49,4.73,0.68
+2018,Seattle Mariners,53,4.39,0.691
+2018,San Francisco Giants,48,4.31,0.692
+2018,St. Louis Cardinals,49,4.27,0.685
+2018,Tampa Bay Rays,54,3.99,0.708
+2018,Texas Rangers,50,5.23,0.682
+2018,Toronto Blue Jays,63,5.14,0.678
+2018,Washington Nationals,53,4.21,0.703
+2018,League Average,46,4.45,0.691
+2017,Arizona Diamondbacks,45,4.07,0.687
+2017,Atlanta Braves,48,5.07,0.683
+2017,Baltimore Orioles,50,5.19,0.683
+2017,Boston Red Sox,49,4.12,0.68
+2017,Chicago Cubs,47,4.29,0.699
+2017,Chicago White Sox,51,5.06,0.7
+2017,Cincinnati Reds,47,5.36,0.691
+2017,Cleveland Indians,41,3.48,0.683
+2017,Colorado Rockies,41,4.67,0.683
+2017,Detroit Tigers,48,5.52,0.668
+2017,Houston Astros,46,4.32,0.682
+2017,Kansas City Royals,49,4.88,0.685
+2017,Los Angeles Angels,55,4.38,0.7
+2017,Los Angeles Dodgers,52,3.58,0.703
+2017,Miami Marlins,43,5.07,0.691
+2017,Milwaukee Brewers,50,4.3,0.684
+2017,Minnesota Twins,52,4.86,0.692
+2017,New York Mets,51,5.33,0.667
+2017,New York Yankees,51,4.07,0.703
+2017,Oakland Athletics,54,5.1,0.686
+2017,Philadelphia Phillies,51,4.83,0.683
+2017,Pittsburgh Pirates,46,4.51,0.679
+2017,San Diego Padres,52,5.04,0.683
+2017,Seattle Mariners,61,4.77,0.7
+2017,San Francisco Giants,49,4.79,0.679
+2017,St. Louis Cardinals,47,4.35,0.687
+2017,Tampa Bay Rays,53,4.35,0.701
+2017,Texas Rangers,51,5.04,0.695
+2017,Toronto Blue Jays,60,4.84,0.682
+2017,Washington Nationals,49,4.15,0.698
+2017,League Average,45,4.65,0.688
+2016,Arizona Diamondbacks,50,5.49,0.665
+2016,Atlanta Braves,59,4.84,0.692
+2016,Baltimore Orioles,46,4.41,0.688
+2016,Boston Red Sox,50,4.28,0.695
+2016,Chicago Cubs,45,3.43,0.728
+2016,Chicago White Sox,48,4.41,0.687
+2016,Cincinnati Reds,52,5.27,0.694
+2016,Cleveland Indians,48,4.2,0.696
+2016,Colorado Rockies,47,5.31,0.667
+2016,Detroit Tigers,44,4.48,0.689
+2016,Houston Astros,43,4.33,0.681
+2016,Kansas City Royals,42,4.4,0.687
+2016,Los Angeles Angels,53,4.49,0.685
+2016,Los Angeles Dodgers,55,3.94,0.699
+2016,Miami Marlins,52,4.24,0.683
+2016,Milwaukee Brewers,49,4.52,0.68
+2016,Minnesota Twins,49,5.49,0.662
+2016,New York Mets,46,3.81,0.678
+2016,New York Yankees,53,4.33,0.694
+2016,Oakland Athletics,49,4.7,0.685
+2016,Philadelphia Phillies,49,4.91,0.681
+2016,Pittsburgh Pirates,54,4.68,0.676
+2016,San Diego Padres,58,4.75,0.687
+2016,Seattle Mariners,54,4.36,0.694
+2016,San Francisco Giants,45,3.9,0.702
+2016,St. Louis Cardinals,40,4.4,0.679
+2016,Tampa Bay Rays,48,4.4,0.687
+2016,Texas Rangers,52,4.67,0.692
+2016,Toronto Blue Jays,49,4.11,0.703
+2016,Washington Nationals,42,3.78,0.7
+2016,League Average,45,4.48,0.688
+2015,Arizona Diamondbacks,50,4.4,0.693
+2015,Atlanta Braves,60,4.69,0.681
+2015,Baltimore Orioles,48,4.28,0.691
+2015,Boston Red Sox,50,4.65,0.68
+2015,Chicago Cubs,50,3.75,0.695
+2015,Chicago White Sox,40,4.33,0.673
+2015,Cincinnati Reds,49,4.65,0.689
+2015,Cleveland Indians,49,3.98,0.699
+2015,Colorado Rockies,51,5.21,0.668
+2015,Detroit Tigers,47,4.99,0.69
+2015,Houston Astros,46,3.81,0.701
+2015,Kansas City Royals,45,3.96,0.701
+2015,Los Angeles Angels,51,4.17,0.701
+2015,Los Angeles Dodgers,55,3.67,0.692
+2015,Miami Marlins,51,4.19,0.694
+2015,Milwaukee Brewers,49,4.55,0.679
+2015,Minnesota Twins,44,4.32,0.687
+2015,New York Mets,49,3.78,0.697
+2015,New York Yankees,55,4.31,0.685
+2015,Oakland Athletics,52,4.5,0.691
+2015,Philadelphia Phillies,50,4.99,0.667
+2015,Pittsburgh Pirates,44,3.68,0.679
+2015,San Diego Padres,46,4.51,0.683
+2015,Seattle Mariners,51,4.48,0.688
+2015,San Francisco Giants,48,3.87,0.706
+2015,St. Louis Cardinals,45,3.24,0.688
+2015,Tampa Bay Rays,51,3.96,0.701
+2015,Texas Rangers,57,4.52,0.687
+2015,Toronto Blue Jays,52,4.14,0.708
+2015,Washington Nationals,44,3.92,0.685
+2015,League Average,45,4.25,0.689
+2014,Arizona Diamondbacks,52,4.58,0.673
+2014,Atlanta Braves,39,3.69,0.687
+2014,Baltimore Orioles,43,3.66,0.706
+2014,Boston Red Sox,55,4.41,0.685
+2014,Chicago Cubs,48,4.36,0.68
+2014,Chicago White Sox,44,4.68,0.678
+2014,Cincinnati Reds,45,3.78,0.712
+2014,Cleveland Indians,45,4.03,0.673
+2014,Colorado Rockies,49,5.05,0.678
+2014,Detroit Tigers,48,4.35,0.673
+2014,Houston Astros,48,4.46,0.685
+2014,Kansas City Royals,48,3.85,0.693
+2014,Los Angeles Angels,54,3.89,0.703
+2014,Los Angeles Dodgers,49,3.81,0.69
+2014,Miami Marlins,44,4.16,0.675
+2014,Milwaukee Brewers,40,4.06,0.696
+2014,Minnesota Twins,48,4.8,0.672
+2014,New York Mets,45,3.81,0.688
+2014,New York Yankees,58,4.1,0.687
+2014,Oakland Athletics,43,3.53,0.71
+2014,Philadelphia Phillies,49,4.24,0.693
+2014,Pittsburgh Pirates,44,3.9,0.694
+2014,San Diego Padres,51,3.56,0.695
+2014,Seattle Mariners,44,3.42,0.712
+2014,San Francisco Giants,46,3.79,0.703
+2014,St. Louis Cardinals,45,3.72,0.701
+2014,Tampa Bay Rays,41,3.86,0.7
+2014,Texas Rangers,64,4.77,0.675
+2014,Toronto Blue Jays,55,4.23,0.693
+2014,Washington Nationals,40,3.43,0.691
+2014,League Average,44,4.07,0.69
+2013,Arizona Diamondbacks,44,4.29,0.697
+2013,Atlanta Braves,43,3.38,0.7
+2013,Baltimore Orioles,52,4.38,0.701
+2013,Boston Red Sox,48,4.05,0.694
+2013,Chicago Cubs,56,4.25,0.706
+2013,Chicago White Sox,47,4.46,0.687
+2013,Cincinnati Reds,39,3.64,0.715
+2013,Cleveland Indians,48,4.09,0.683
+2013,Colorado Rockies,43,4.69,0.674
+2013,Detroit Tigers,39,3.85,0.682
+2013,Houston Astros,50,5.23,0.679
+2013,Kansas City Royals,43,3.71,0.698
+2013,Los Angeles Angels,49,4.55,0.683
+2013,Los Angeles Dodgers,49,3.59,0.692
+2013,Miami Marlins,52,3.99,0.695
+2013,Milwaukee Brewers,40,4.24,0.697
+2013,Minnesota Twins,44,4.86,0.679
+2013,New York Mets,53,4.22,0.691
+2013,New York Yankees,55,4.14,0.687
+2013,Oakland Athletics,44,3.86,0.708
+2013,Philadelphia Phillies,51,4.62,0.679
+2013,Pittsburgh Pirates,49,3.56,0.698
+2013,San Diego Padres,47,4.32,0.696
+2013,Seattle Mariners,47,4.65,0.683
+2013,San Francisco Giants,44,4.27,0.689
+2013,St. Louis Cardinals,44,3.68,0.691
+2013,Tampa Bay Rays,41,3.96,0.707
+2013,Texas Rangers,45,3.9,0.693
+2013,Toronto Blue Jays,53,4.67,0.69
+2013,Washington Nationals,44,3.86,0.691
+2013,League Average,43,4.17,0.692
+2012,Arizona Diamondbacks,48,4.25,0.685
+2012,Atlanta Braves,41,3.7,0.703
+2012,Baltimore Orioles,51,4.35,0.699
+2012,Boston Red Sox,56,4.98,0.689
+2012,Chicago Cubs,53,4.69,0.692
+2012,Chicago White Sox,45,4.17,0.702
+2012,Cincinnati Reds,38,3.63,0.699
+2012,Cleveland Indians,47,5.22,0.685
+2012,Colorado Rockies,49,5.49,0.657
+2012,Detroit Tigers,46,4.14,0.678
+2012,Houston Astros,50,4.9,0.675
+2012,Kansas City Royals,45,4.6,0.673
+2012,Los Angeles Angels,43,4.31,0.708
+2012,Los Angeles Dodgers,50,3.69,0.702
+2012,Miami Marlins,44,4.47,0.685
+2012,Milwaukee Brewers,46,4.52,0.672
+2012,Minnesota Twins,47,5.14,0.69
+2012,New York Mets,48,4.38,0.694
+2012,New York Yankees,45,4.12,0.693
+2012,Oakland Athletics,50,3.79,0.704
+2012,Philadelphia Phillies,49,4.2,0.686
+2012,Pittsburgh Pirates,49,4.16,0.697
+2012,San Diego Padres,53,4.38,0.697
+2012,Seattle Mariners,37,4.02,0.707
+2012,San Francisco Giants,45,4.01,0.693
+2012,St. Louis Cardinals,45,4,0.686
+2012,Tampa Bay Rays,43,3.56,0.704
+2012,Texas Rangers,39,4.36,0.694
+2012,Toronto Blue Jays,54,4.84,0.694
+2012,Washington Nationals,43,3.67,0.702
+2012,League Average,43,4.32,0.691
+2011,Arizona Diamondbacks,51,4.09,0.701
+2011,Atlanta Braves,44,3.73,0.699
+2011,Baltimore Orioles,49,5.31,0.682
+2011,Boston Red Sox,49,4.55,0.701
+2011,Chicago Cubs,42,4.67,0.678
+2011,Chicago White Sox,42,4.36,0.685
+2011,Cincinnati Reds,42,4.44,0.705
+2011,Cleveland Indians,45,4.69,0.692
+2011,Colorado Rockies,55,4.78,0.688
+2011,Detroit Tigers,45,4.39,0.692
+2011,Florida Marlins,44,4.33,0.694
+2011,Houston Astros,47,4.91,0.68
+2011,Kansas City Royals,42,4.7,0.687
+2011,Los Angeles Angels,42,3.91,0.704
+2011,Los Angeles Dodgers,48,3.8,0.701
+2011,Milwaukee Brewers,46,3.94,0.694
+2011,Minnesota Twins,44,4.96,0.677
+2011,New York Mets,46,4.58,0.683
+2011,New York Yankees,48,4.06,0.688
+2011,Oakland Athletics,48,4.19,0.692
+2011,Philadelphia Phillies,42,3.27,0.703
+2011,Pittsburgh Pirates,52,4.4,0.684
+2011,San Diego Padres,48,3.77,0.704
+2011,Seattle Mariners,45,4.17,0.698
+2011,San Francisco Giants,43,3.57,0.701
+2011,St. Louis Cardinals,46,4.27,0.687
+2011,Tampa Bay Rays,40,3.79,0.724
+2011,Texas Rangers,45,4.18,0.704
+2011,Toronto Blue Jays,53,4.7,0.693
+2011,Washington Nationals,43,3.99,0.697
+2011,League Average,43,4.28,0.694
+2010,Arizona Diamondbacks,48,5.16,0.689
+2010,Atlanta Braves,43,3.88,0.69
+2010,Baltimore Orioles,45,4.85,0.69
+2010,Boston Red Sox,53,4.59,0.691
+2010,Chicago Cubs,44,4.73,0.681
+2010,Chicago White Sox,39,4.35,0.679
+2010,Cincinnati Reds,44,4.23,0.701
+2010,Cleveland Indians,44,4.64,0.687
+2010,Colorado Rockies,43,4.43,0.682
+2010,Detroit Tigers,41,4.59,0.688
+2010,Florida Marlins,57,4.43,0.681
+2010,Houston Astros,48,4.5,0.68
+2010,Kansas City Royals,46,5.22,0.679
+2010,Los Angeles Angels,46,4.33,0.692
+2010,Los Angeles Dodgers,49,4.27,0.697
+2010,Milwaukee Brewers,43,4.96,0.675
+2010,Minnesota Twins,41,4.14,0.69
+2010,New York Mets,47,4.02,0.691
+2010,New York Yankees,43,4.28,0.709
+2010,Oakland Athletics,49,3.86,0.711
+2010,Philadelphia Phillies,42,3.95,0.698
+2010,Pittsburgh Pirates,52,5.35,0.671
+2010,San Diego Padres,40,3.59,0.703
+2010,Seattle Mariners,46,4.31,0.705
+2010,San Francisco Giants,42,3.6,0.707
+2010,St. Louis Cardinals,42,3.96,0.694
+2010,Tampa Bay Rays,36,4.01,0.709
+2010,Texas Rangers,48,4.24,0.704
+2010,Toronto Blue Jays,44,4.49,0.689
+2010,Washington Nationals,46,4.58,0.684
+2010,League Average,42,4.38,0.691
+2009,Arizona Diamondbacks,45,4.83,0.683
+2009,Atlanta Braves,45,3.96,0.686
+2009,Baltimore Orioles,48,5.41,0.68
+2009,Boston Red Sox,52,4.54,0.678
+2009,Chicago Cubs,45,4.17,0.698
+2009,Chicago White Sox,44,4.52,0.689
+2009,Cincinnati Reds,45,4.46,0.704
+2009,Cleveland Indians,51,5.34,0.681
+2009,Colorado Rockies,45,4.41,0.688
+2009,Detroit Tigers,44,4.57,0.694
+2009,Florida Marlins,44,4.73,0.686
+2009,Houston Astros,42,4.75,0.677
+2009,Kansas City Royals,43,5.2,0.675
+2009,Los Angeles Angels,46,4.7,0.687
+2009,Los Angeles Dodgers,46,3.77,0.713
+2009,Milwaukee Brewers,45,5.05,0.689
+2009,Minnesota Twins,41,4.69,0.689
+2009,New York Mets,51,4.67,0.693
+2009,New York Yankees,44,4.65,0.698
+2009,Oakland Athletics,50,4.7,0.682
+2009,Philadelphia Phillies,41,4.38,0.693
+2009,Pittsburgh Pirates,49,4.77,0.69
+2009,San Diego Padres,54,4.75,0.692
+2009,Seattle Mariners,46,4.27,0.712
+2009,San Francisco Giants,44,3.77,0.706
+2009,St. Louis Cardinals,42,3.95,0.694
+2009,Tampa Bay Rays,41,4.65,0.695
+2009,Texas Rangers,44,4.57,0.697
+2009,Toronto Blue Jays,44,4.76,0.681
+2009,Washington Nationals,55,5.4,0.683
+2009,League Average,42,4.61,0.69
+2008,Arizona Diamondbacks,41,4.36,0.685
+2008,Atlanta Braves,48,4.8,0.692
+2008,Baltimore Orioles,46,5.4,0.687
+2008,Boston Red Sox,46,4.28,0.698
+2008,Chicago Cubs,42,4.17,0.703
+2008,Chicago White Sox,38,4.47,0.686
+2008,Cincinnati Reds,47,4.94,0.671
+2008,Cleveland Indians,48,4.7,0.685
+2008,Colorado Rockies,49,5.07,0.677
+2008,Detroit Tigers,46,5.29,0.683
+2008,Florida Marlins,44,4.76,0.692
+2008,Houston Astros,40,4.61,0.697
+2008,Kansas City Royals,43,4.82,0.688
+2008,Los Angeles Angels,41,4.3,0.691
+2008,Los Angeles Dodgers,46,4,0.69
+2008,Milwaukee Brewers,42,4.25,0.7
+2008,Minnesota Twins,39,4.57,0.684
+2008,New York Mets,49,4.41,0.699
+2008,New York Yankees,51,4.49,0.682
+2008,Oakland Athletics,49,4.29,0.699
+2008,Philadelphia Phillies,38,4.2,0.695
+2008,Pittsburgh Pirates,47,5.46,0.675
+2008,San Diego Padres,59,4.72,0.694
+2008,Seattle Mariners,44,5.01,0.679
+2008,San Francisco Giants,47,4.69,0.685
+2008,St. Louis Cardinals,43,4.48,0.694
+2008,Tampa Bay Rays,45,4.14,0.708
+2008,Texas Rangers,54,5.97,0.666
+2008,Toronto Blue Jays,40,3.77,0.703
+2008,Washington Nationals,50,5.12,0.686
+2008,League Average,42,4.65,0.689
+2007,Arizona Diamondbacks,47,4.52,0.691
+2007,Atlanta Braves,50,4.52,0.696
+2007,Baltimore Orioles,49,5.36,0.686
+2007,Boston Red Sox,40,4.06,0.704
+2007,Chicago Cubs,47,4.26,0.704
+2007,Chicago White Sox,43,5.18,0.68
+2007,Cincinnati Reds,50,5.27,0.676
+2007,Cleveland Indians,41,4.35,0.685
+2007,Colorado Rockies,53,4.65,0.701
+2007,Detroit Tigers,44,4.92,0.69
+2007,Florida Marlins,50,5.5,0.659
+2007,Houston Astros,41,5.02,0.685
+2007,Kansas City Royals,45,4.8,0.681
+2007,Los Angeles Angels,42,4.51,0.678
+2007,Los Angeles Dodgers,45,4.49,0.682
+2007,Milwaukee Brewers,40,4.79,0.675
+2007,Minnesota Twins,42,4.48,0.685
+2007,New York Mets,49,4.63,0.698
+2007,New York Yankees,49,4.8,0.689
+2007,Oakland Athletics,52,4.68,0.691
+2007,Philadelphia Phillies,45,5.07,0.686
+2007,Pittsburgh Pirates,46,5.22,0.673
+2007,San Diego Padres,46,4.09,0.699
+2007,Seattle Mariners,43,5.02,0.672
+2007,San Francisco Giants,44,4.44,0.694
+2007,St. Louis Cardinals,45,5.12,0.689
+2007,Tampa Bay Devil Rays,45,5.83,0.652
+2007,Texas Rangers,50,5.21,0.679
+2007,Toronto Blue Jays,45,4.31,0.703
+2007,Washington Nationals,47,4.83,0.698
+2007,League Average,42,4.8,0.686
+2006,Arizona Diamondbacks,45,4.86,0.685
+2006,Atlanta Braves,45,4.97,0.686
+2006,Baltimore Orioles,46,5.55,0.678
+2006,Boston Red Sox,53,5.09,0.679
+2006,Chicago Cubs,46,5.15,0.698
+2006,Chicago White Sox,37,4.9,0.693
+2006,Cincinnati Reds,52,4.94,0.68
+2006,Cleveland Indians,45,4.83,0.675
+2006,Colorado Rockies,50,5.01,0.683
+2006,Detroit Tigers,38,4.17,0.701
+2006,Florida Marlins,40,4.77,0.683
+2006,Houston Astros,38,4.44,0.701
+2006,Kansas City Royals,53,5.99,0.676
+2006,Los Angeles Angels,40,4.52,0.69
+2006,Los Angeles Dodgers,50,4.64,0.681
+2006,Milwaukee Brewers,49,5.14,0.685
+2006,Minnesota Twins,38,4.22,0.685
+2006,New York Mets,49,4.51,0.701
+2006,New York Yankees,49,4.73,0.696
+2006,Oakland Athletics,39,4.49,0.688
+2006,Philadelphia Phillies,44,5.01,0.681
+2006,Pittsburgh Pirates,41,4.92,0.674
+2006,San Diego Padres,43,4.19,0.71
+2006,Seattle Mariners,49,4.89,0.69
+2006,San Francisco Giants,44,4.91,0.7
+2006,St. Louis Cardinals,41,4.73,0.697
+2006,Tampa Bay Devil Rays,49,5.28,0.671
+2006,Texas Rangers,51,4.84,0.678
+2006,Toronto Blue Jays,42,4.65,0.693
+2006,Washington Nationals,57,5.38,0.689
+2006,League Average,41,4.86,0.687
+2005,Arizona Diamondbacks,43,5.28,0.683
+2005,Atlanta Braves,45,4.16,0.693
+2005,Baltimore Orioles,46,4.94,0.692
+2005,Boston Red Sox,52,4.97,0.682
+2005,Chicago Cubs,43,4.41,0.699
+2005,Chicago White Sox,37,3.98,0.711
+2005,Cincinnati Reds,45,5.45,0.676
+2005,Cleveland Indians,36,3.96,0.709
+2005,Colorado Rockies,53,5.32,0.67
+2005,Detroit Tigers,45,4.86,0.695
+2005,Florida Marlins,47,4.52,0.677
+2005,Houston Astros,36,3.74,0.705
+2005,Kansas City Royals,45,5.77,0.666
+2005,Los Angeles Angels,40,3.97,0.7
+2005,Los Angeles Dodgers,44,4.66,0.699
+2005,Milwaukee Brewers,38,4.3,0.696
+2005,Minnesota Twins,37,4.09,0.702
+2005,New York Mets,42,4,0.7
+2005,New York Yankees,51,4.87,0.69
+2005,Oakland Athletics,41,4.06,0.715
+2005,Philadelphia Phillies,40,4.48,0.703
+2005,Pittsburgh Pirates,44,4.75,0.693
+2005,San Diego Padres,46,4.48,0.689
+2005,Seattle Mariners,48,4.64,0.701
+2005,San Francisco Giants,49,4.6,0.699
+2005,St. Louis Cardinals,40,3.91,0.703
+2005,Tampa Bay Devil Rays,43,5.78,0.681
+2005,Texas Rangers,50,5.3,0.68
+2005,Toronto Blue Jays,36,4.35,0.701
+2005,Washington Nationals,54,4.15,0.697
+2005,League Average,41,4.59,0.693
+2004,Los Angeles Angels,38,4.53,0.688
+2004,Arizona Diamondbacks,52,5.55,0.682
+2004,Atlanta Braves,39,4.12,0.688
+2004,Baltimore Orioles,46,5.12,0.686
+2004,Boston Red Sox,49,4.74,0.693
+2004,Chicago Cubs,43,4.1,0.697
+2004,Chicago White Sox,42,5.13,0.693
+2004,Cincinnati Reds,44,5.6,0.688
+2004,Cleveland Indians,51,5.29,0.684
+2004,Colorado Rockies,47,5.7,0.677
+2004,Detroit Tigers,39,5.21,0.681
+2004,Florida Marlins,45,4.32,0.699
+2004,Houston Astros,42,4.31,0.685
+2004,Kansas City Royals,58,5.59,0.674
+2004,Los Angeles Dodgers,43,4.22,0.711
+2004,Milwaukee Brewers,40,4.7,0.693
+2004,Minnesota Twins,42,4.41,0.684
+2004,Montreal Expos,46,4.75,0.694
+2004,New York Mets,52,4.51,0.696
+2004,New York Yankees,43,4.99,0.685
+2004,Oakland Athletics,36,4.58,0.698
+2004,Philadelphia Phillies,39,4.82,0.702
+2004,Pittsburgh Pirates,43,4.62,0.684
+2004,San Diego Padres,46,4.35,0.693
+2004,Seattle Mariners,48,5.08,0.699
+2004,San Francisco Giants,42,4.75,0.694
+2004,St. Louis Cardinals,37,4.07,0.71
+2004,Tampa Bay Devil Rays,47,5.23,0.699
+2004,Texas Rangers,52,4.9,0.686
+2004,Toronto Blue Jays,47,5.11,0.691
+2004,League Average,41,4.81,0.691
+2003,Los Angeles Angels,43,4.59,0.702
+2003,Arizona Diamondbacks,43,4.23,0.69
+2003,Atlanta Braves,34,4.57,0.699
+2003,Baltimore Orioles,42,5.03,0.684
+2003,Boston Red Sox,47,4.99,0.683
+2003,Chicago Cubs,42,4.22,0.692
+2003,Chicago White Sox,40,4.41,0.705
+2003,Cincinnati Reds,57,5.47,0.685
+2003,Cleveland Indians,54,4.8,0.698
+2003,Colorado Rockies,49,5.51,0.678
+2003,Detroit Tigers,42,5.73,0.685
+2003,Florida Marlins,40,4.27,0.691
+2003,Houston Astros,43,4.18,0.705
+2003,Kansas City Royals,53,5.35,0.69
+2003,Los Angeles Dodgers,42,3.43,0.702
+2003,Milwaukee Brewers,42,5.39,0.683
+2003,Minnesota Twins,42,4.68,0.698
+2003,Montreal Expos,43,4.42,0.694
+2003,New York Mets,50,4.68,0.688
+2003,New York Yankees,49,4.39,0.681
+2003,Oakland Athletics,41,3.97,0.711
+2003,Philadelphia Phillies,37,4.3,0.701
+2003,Pittsburgh Pirates,45,4.94,0.691
+2003,San Diego Padres,51,5.13,0.695
+2003,Seattle Mariners,36,3.93,0.721
+2003,San Francisco Giants,46,3.96,0.71
+2003,St. Louis Cardinals,42,4.91,0.7
+2003,Tampa Bay Devil Rays,50,5.26,0.708
+2003,Texas Rangers,52,5.98,0.674
+2003,Toronto Blue Jays,40,5.1,0.681
+2003,League Average,41,4.73,0.694
+2002,Los Angeles Angels,40,3.98,0.718
+2002,Arizona Diamondbacks,41,4.16,0.697
+2002,Atlanta Braves,38,3.51,0.712
+2002,Baltimore Orioles,46,4.77,0.701
+2002,Boston Red Sox,39,4.1,0.702
+2002,Chicago Cubs,44,4.69,0.685
+2002,Chicago White Sox,35,4.93,0.706
+2002,Cincinnati Reds,43,4.78,0.69
+2002,Cleveland Indians,59,5.17,0.674
+2002,Colorado Rockies,43,5.54,0.691
+2002,Detroit Tigers,56,5.37,0.678
+2002,Florida Marlins,41,4.71,0.689
+2002,Houston Astros,41,4.29,0.687
+2002,Kansas City Royals,52,5.5,0.685
+2002,Los Angeles Dodgers,41,3.97,0.716
+2002,Milwaukee Brewers,49,5.07,0.696
+2002,Minnesota Twins,42,4.42,0.703
+2002,Montreal Expos,43,4.43,0.684
+2002,New York Mets,47,4.37,0.692
+2002,New York Yankees,37,4.33,0.688
+2002,Oakland Athletics,41,4.04,0.704
+2002,Philadelphia Phillies,39,4.5,0.705
+2002,Pittsburgh Pirates,37,4.53,0.693
+2002,San Diego Padres,59,5.03,0.675
+2002,Seattle Mariners,38,4.31,0.703
+2002,San Francisco Giants,38,3.8,0.705
+2002,St. Louis Cardinals,44,4,0.707
+2002,Tampa Bay Devil Rays,43,5.7,0.687
+2002,Texas Rangers,51,5.44,0.688
+2002,Toronto Blue Jays,45,5.11,0.69
+2002,League Average,40,4.62,0.695
+2001,Los Angeles Angels,37,4.51,0.7
+2001,Arizona Diamondbacks,45,4.18,0.703
+2001,Atlanta Braves,47,3.97,0.702
+2001,Baltimore Orioles,46,5.12,0.694
+2001,Boston Red Sox,48,4.63,0.684
+2001,Chicago Cubs,43,4.33,0.688
+2001,Chicago White Sox,41,4.91,0.698
+2001,Cincinnati Reds,49,5.25,0.684
+2001,Cleveland Indians,43,5.07,0.67
+2001,Colorado Rockies,52,5.59,0.691
+2001,Detroit Tigers,42,5.41,0.675
+2001,Florida Marlins,42,4.59,0.692
+2001,Houston Astros,43,4.75,0.692
+2001,Kansas City Royals,44,5.3,0.69
+2001,Los Angeles Dodgers,41,4.59,0.696
+2001,Milwaukee Brewers,46,4.98,0.696
+2001,Minnesota Twins,42,4.73,0.698
+2001,Montreal Expos,46,5.01,0.682
+2001,New York Mets,43,4.4,0.694
+2001,New York Yankees,45,4.43,0.683
+2001,Oakland Athletics,41,3.98,0.699
+2001,Philadelphia Phillies,44,4.44,0.699
+2001,Pittsburgh Pirates,49,5.3,0.687
+2001,San Diego Padres,48,5.01,0.686
+2001,Seattle Mariners,35,3.87,0.727
+2001,San Francisco Giants,41,4.62,0.692
+2001,St. Louis Cardinals,39,4.22,0.703
+2001,Tampa Bay Devil Rays,46,5.48,0.683
+2001,Texas Rangers,51,5.98,0.673
+2001,Toronto Blue Jays,40,4.65,0.68
+2001,League Average,40,4.78,0.691
+2000,Los Angeles Angels,45,5.36,0.699
+2000,Arizona Diamondbacks,41,4.65,0.687
+2000,Atlanta Braves,46,4.41,0.692
+2000,Baltimore Orioles,48,5.64,0.684
+2000,Boston Red Sox,50,4.6,0.696
+2000,Chicago Cubs,50,5.58,0.693
+2000,Chicago White Sox,41,5.18,0.685
+2000,Cincinnati Reds,45,4.69,0.702
+2000,Cleveland Indians,55,5.04,0.678
+2000,Colorado Rockies,49,5.54,0.684
+2000,Detroit Tigers,44,5.1,0.679
+2000,Florida Marlins,39,4.95,0.684
+2000,Houston Astros,45,5.83,0.678
+2000,Kansas City Royals,44,5.74,0.689
+2000,Los Angeles Dodgers,45,4.5,0.696
+2000,Milwaukee Brewers,46,5.07,0.693
+2000,Minnesota Twins,41,5.43,0.671
+2000,Montreal Expos,49,5.57,0.672
+2000,New York Mets,47,4.56,0.696
+2000,New York Yankees,46,5.06,0.693
+2000,Oakland Athletics,43,5.05,0.68
+2000,Philadelphia Phillies,51,5.12,0.693
+2000,Pittsburgh Pirates,46,5.48,0.673
+2000,San Diego Padres,55,5.03,0.696
+2000,Seattle Mariners,37,4.81,0.698
+2000,San Francisco Giants,36,4.61,0.689
+2000,St. Louis Cardinals,46,4.76,0.699
+2000,Tampa Bay Devil Rays,49,5.23,0.684
+2000,Texas Rangers,41,6.01,0.667
+2000,Toronto Blue Jays,45,5.6,0.676
+2000,League Average,41,5.14,0.687
