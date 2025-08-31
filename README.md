@@ -5,3 +5,7 @@ These are the files for a project that I created for a data analytics class. I w
 The folder labeled data is full of the raw .csv files that I created from baseball-reference.com and are labeled accordingly to what is in each file. They were combined in the final project to form the final_baseball_data.csv file which is what is used for the final project.
 
 The reports folder has three different files in it. First is the raw .Rmd file for the project. Next are two different .pdf files that are essentially the same, except one has code chunks showing and one does not and is more of a professional report than the one with code chunks.
+
+When creating the project I decided to look at the broader trends in baseball payroll first to get the general picture, then zone in on specific statistics that affect teams performance and how those relate to payroll.
+
+After I did some exploratory data analysis I wanted to try to create a predictive model that could predict a team's seasonal record based upon the variables I chose which is the final figure in the report.
